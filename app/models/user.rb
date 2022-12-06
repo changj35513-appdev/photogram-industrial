@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :photos, class_name: "Photo", foreign_key: "owner_id"
-  has_many :comments, foreign_key: "author_id"
+  has_many :photo, foreign_key: "owner_id"
+
+  has_many :comment, foreign_key: "author_id"
+
+  has_many :recipient, class_name: "FollowRequest"
+  has_many :sender, class_name: "FollowRequest"
 end
