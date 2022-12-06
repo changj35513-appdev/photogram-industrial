@@ -10,4 +10,6 @@ class User < ApplicationRecord
 
   has_many :recipient, class_name: "FollowRequest"
   has_many :sender, class_name: "FollowRequest"
+
+  has_many :like, foreign_key: "fan_id"
 end
